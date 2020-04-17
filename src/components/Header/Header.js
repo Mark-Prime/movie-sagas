@@ -9,7 +9,7 @@ import Button from '@material-ui/core/Button';
 class Header extends Component {
     render() { 
         return ( 
-            <AppBar position="static" color="default">
+            <AppBar color="default">
                 <Toolbar>
                     <Button color="inherit">Home</Button>
                 </Toolbar>
