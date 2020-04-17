@@ -10,6 +10,7 @@ class MovieDisplay extends Component {
     render() { 
         return ( 
             <>
+                <Divider />
                 <Grid container className="container-inner">
                     <Grid item xs={4}>
                         <img className="image" src={this.props.image}/>
@@ -19,7 +20,6 @@ class MovieDisplay extends Component {
                         <p className="description">{this.props.description}</p>
                     </Grid>
                 </Grid>
-                <Divider />
             </>
          );
     }

@@ -7,8 +7,6 @@ h1 {
     margin-right: 50px;
     border-right-style: dotted;
     border-width: 1px;
-    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
-    filter: grayscale(100%);
 }
 
 .description {
