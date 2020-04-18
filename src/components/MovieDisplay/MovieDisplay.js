@@ -2,18 +2,27 @@ import React, { Component } from 'react';
 import Divider from '@material-ui/core/Divider';
 import Grid from '@material-ui/core/Grid';
 
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+
+
 import './MovieDisplay.css'
 
 
 class MovieDisplay extends Component {
-    state = {  }
+
+    openViewInfo = () => {
+        this.props.history.push(`/view/${this.props.id}`);
+    }
+
+
     render() { 
         return ( 
             <>
                 <Divider />
                 <Grid container className="container-inner">
                     <Grid item xs={4}>
-                        <img className="image" src={this.props.image}/>
+                        <img className="image" src={this.props.image} onClick={this.openViewInfo} alt={this.props.title}/>
                     </Grid>
                     <Grid item xs={2}></Grid>
                     <Grid item xs={6}>
@@ -26,4 +35,4 @@ class MovieDisplay extends Component {
     }
 }
  
-export default MovieDisplay;
+export default withRouter(connect()(MovieDisplay));

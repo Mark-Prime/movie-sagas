@@ -24,10 +24,22 @@ function* getMovies(){
     }
 }
 
+function* getInfo(action){
+    console.log('in getInfo', action);
+    try {
+        let response = yield axios.get(`/api/${action.payload.id}`)
+        console.log(response.data)
+        yield put({ type: 'SET_GENRES', payload: response.data})
+    } catch (error) {
+        console.log('Error in get from /api/:id', error);
+    }
+}
+
 
 // Create the rootSaga generator function
 function* rootSaga() {
-    yield takeEvery('GET_MOVIES', getMovies)
+    yield takeEvery('GET_MOVIES', getMovies);
+    yield takeEvery('GET_INFO', getInfo);
 }
 
 // Create sagaMiddleware

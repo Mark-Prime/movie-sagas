@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import './App.css';
 import { HashRouter as Router, Route } from 'react-router-dom';
 
-//Components
+// Pages
 import MoviePage from '../MoviePage/MoviePage'
-import Header from '../Header/Header'
+import ViewInfo from '../ViewInfo/ViewInfo'
+
 
 
 
@@ -13,9 +14,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Header/>
         <Router>
           <Route exact path='/' component={MoviePage} />
+          <Route path='/view/:id' component={ViewInfo} />
         </Router>
       </div>
     );

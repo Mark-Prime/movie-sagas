@@ -6,6 +6,7 @@ import './MoviePage.css'
 
 // Components
 import MovieDisplay from '../MovieDisplay/MovieDisplay';
+import Header from '../Header/Header'
 
 
 const mapReduxStateToProps = (reduxState) => ({
@@ -22,6 +23,7 @@ class MoviePage extends Component {
     render() { 
         return ( 
             <>
+                <Header />
                 <div className="container">
                     {this.props.movies.map(item => <MovieDisplay id={item.id} image={item.poster} title={item.title} description={item.description} />)}
                 </div>

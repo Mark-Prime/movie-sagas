@@ -11,7 +11,7 @@ class Header extends Component {
         return ( 
             <AppBar color="default">
                 <Toolbar>
-                    <Button color="inherit">Home</Button>
+                    <Button color="inherit" href="#">Home</Button>
                 </Toolbar>
             </AppBar>
          );
