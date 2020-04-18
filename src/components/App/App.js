@@ -5,8 +5,7 @@ import { HashRouter as Router, Route } from 'react-router-dom';
 // Pages
 import MoviePage from '../MoviePage/MoviePage'
 import ViewInfo from '../ViewInfo/ViewInfo'
-
-
+import EditInfo from '../EditInfo/EditInfo'
 
 
 class App extends Component {
@@ -17,6 +16,7 @@ class App extends Component {
         <Router>
           <Route exact path='/' component={MoviePage} />
           <Route path='/view/:id' component={ViewInfo} />
+          <Route path='/edit/:id' component={EditInfo} />
         </Router>
       </div>
     );

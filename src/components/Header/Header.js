@@ -19,7 +19,7 @@ class Header extends Component {
                 <Toolbar>
                     <Button color="primary" href="#">Home</Button>
                     {this.props.edit &&
-                        <Button color="secondary" href={'#' +this.props.location.pathname.replace('view', 'edit')}>Edit</Button>
+                        <Button color="secondary" href={'#' + this.props.location.pathname.replace('view', 'edit')}>Edit</Button>
                     }
                 </Toolbar>
             </AppBar>
