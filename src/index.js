@@ -35,11 +35,22 @@ function* getInfo(action){
     }
 }
 
+function* updateInfo(action){
+    console.log('in updateInfo');
+    try {
+        yield axios.put(`/api/${action.payload.id}`, action.payload)
+        this.props.dispatch({ type: 'GET_MOVIES' })
+    } catch (error) {
+        console.log('Error in put from /api/${action.payload.id}', error);
+    }
+}
+
 
 // Create the rootSaga generator function
 function* rootSaga() {
     yield takeEvery('GET_MOVIES', getMovies);
     yield takeEvery('GET_INFO', getInfo);
+    yield takeEvery('UPDATE_INFO', updateInfo);
 }
 
 // Create sagaMiddleware

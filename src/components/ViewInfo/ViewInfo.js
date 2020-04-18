@@ -35,10 +35,10 @@ class ViewInfo extends Component {
                         <Grid item xs={4}>
                             <img className="poster" src={this.props.genres[0].poster} alt={this.props.genres[0].title} />
                         </Grid>
-                        <Grid item xs={1}></Grid>
+                        <Grid item xs={2}></Grid>
                         <Grid item xs={4}>
                             <h1>{this.props.genres[0].title}</h1>
-                            <h4>{this.props.genres[0].description}</h4>
+                            <p className="description">{this.props.genres[0].description}</p>
                             <Divider />
                             {this.props.genres.map(genre => <h2 key={genre.name}>{genre.name}</h2>)}
                         </Grid>

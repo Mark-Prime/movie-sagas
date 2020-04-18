@@ -4,16 +4,8 @@ import React, { Component } from 'react';
 import TextField from '@material-ui/core/TextField';
 
 class EditInputs extends Component {
-
-    state = { 
-        title: this.props.title,
-        description: this.props.description
-    }
-
-    handleChange = (event, item) => {
-        this.setState({
-            [item]: event.target.value
-        })
+    componentDidMount() {
+        this.props.setStateOnRefresh(this.props.initial_title, this.props.initial_description)
     }
 
 
@@ -25,8 +17,8 @@ class EditInputs extends Component {
                     label="Title"
                     margin="normal"
                     fullWidth
-                    value={this.state.title}
-                    onChange={(event) => this.handleChange(event, 'title')}
+                    value={this.props.title}
+                    onChange={(event) => this.props.handleChange(event, 'title')}
                 />
                 <TextField
                     id="standard-name"
@@ -34,9 +26,9 @@ class EditInputs extends Component {
                     margin="normal"
                     fullWidth
                     multiline
-                    value={this.state.description}
+                    value={this.props.description}
                     variant="outlined"
-                    onChange={(event) => this.handleChange(event, 'description')}
+                    onChange={(event) => this.props.handleChange(event, 'description')}
                 />
             </>
          );

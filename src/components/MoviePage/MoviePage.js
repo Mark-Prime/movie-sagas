@@ -23,7 +23,7 @@ class MoviePage extends Component {
     render() { 
         return ( 
             <>
-                <Header edit={false}/>
+                <Header />
                 <div className="container">
                     {this.props.movies.map(item => <MovieDisplay key={item.id} id={item.id} image={item.poster} title={item.title} description={item.description} />)}
                 </div>

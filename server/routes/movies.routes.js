@@ -27,4 +27,16 @@ router.get('/:id', (req, res) => {
     });
 })
 
+router.put('/:id', (req, res) => {
+    console.log('PUT /api/:id');
+    let queryText = 'UPDATE movies SET "title" = $1, "description" = $2 WHERE id = $3';
+    pool.query(queryText,[req.body.title, req.body.description, req.params.id]).then(result => {
+        res.sendStatus(200);
+    })
+    .catch(error => {
+        console.log('error updating movies', error);
+        res.sendStatus(500);
+    });
+})
+
 module.exports = router;

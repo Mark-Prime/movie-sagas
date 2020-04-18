@@ -22,8 +22,9 @@ const mapReduxStateToProps = (reduxState) => ({
 
 class EditInfo extends Component {
     state = {
+        id: '',
         title: '',
-        description: ''
+        description: '',
     }
 
     componentDidMount() {
@@ -32,35 +33,53 @@ class EditInfo extends Component {
         window.scrollTo(0, 0)
     }
 
-    handleTitleChange = (event) => {
+    updateInfo = () => {
+        let payload = {
+            id: this.state.id,
+            title: this.state.title,
+            description: this.state.description
+        }
+        this.props.dispatch({ type: 'UPDATE_INFO', payload})
+        
+    }
+
+    setStateOnRefresh = (title, description) => {
         this.setState({
-            title: event.target.value
+            id: this.props.genres[0].id, 
+            title, 
+            description
         })
     }
 
-    inputFormState = () => {
-        console.log('inputFormState')
-        if (this.props.genres[0]) {
-            this.setState({
-                title: this.props.genres[0].title,
-                description: this.props.genres[0].description
-            })
-        }
+    handleChange = (event, item) => {
+        this.setState({
+            [item]: event.target.value
+        })
     }
 
     render() {
         return (
             <>
-                <Header edit={false} />
+                <Header save={true} updateInfo={this.updateInfo}/>
                 {this.props.genres[0] &&
                     <Grid container className="view-container">
                         <Grid item xs={1}></Grid>
                         <Grid item xs={4}>
                             <img className="poster" src={this.props.genres[0].poster} alt={this.props.genres[0].title} />
                         </Grid>
-                        <Grid item xs={1}></Grid>
+                        <Grid item xs={2}></Grid>
                         <Grid item xs={4}>
-                            <EditInputs title={this.props.genres[0].title} description={this.props.genres[0].description} />
+                            <EditInputs 
+                                handleChange={this.handleChange}
+                                updateInfo={this.updateInfo} 
+                                setStateOnRefresh={this.setStateOnRefresh}
+                                initial_title={this.props.genres[0].title}
+                                initial_description={this.props.genres[0].description}
+                                title={this.state.title}
+                                description={this.state.description}
+                                id={this.props.genres[0].id}
+                            />
+                            {JSON.stringify(this.state)}
                             <Divider />
                             {this.props.genres.map(genre => <h2 key={genre.name}>{genre.name}</h2>)}
                         </Grid>
