@@ -6,6 +6,9 @@ import { withRouter } from 'react-router-dom';
 // CSS
 import './ViewInfo.css'
 
+// Components
+import Header from '../Header/Header'
+
 // Material-ui
 import Grid from '@material-ui/core/Grid';
 import Divider from '@material-ui/core/Divider';
@@ -19,11 +22,13 @@ class ViewInfo extends Component {
 
     componentDidMount() {
         this.props.dispatch({ type: 'GET_INFO', payload: this.props.match.params })
+        window.scrollTo(0, 0)
     }
 
     render() { 
         return ( 
             <>
+                <Header edit={true}/>
                 {this.props.genres[0] &&
                     <Grid container className="view-container">
                         <Grid item xs={1}></Grid>
@@ -35,7 +40,7 @@ class ViewInfo extends Component {
                             <h1>{this.props.genres[0].title}</h1>
                             <h4>{this.props.genres[0].description}</h4>
                             <Divider />
-                            {this.props.genres.map(genre => <h2>{genre.name}</h2>)}
+                            {this.props.genres.map(genre => <h2 key={genre.name}>{genre.name}</h2>)}
                         </Grid>
                     </Grid>
                 }
