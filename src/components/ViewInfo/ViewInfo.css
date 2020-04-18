@@ -1,0 +1,10 @@
+.view-container {
+    margin-top: 80px;
+}
+
+.poster {
+    width: 90%;
+    border-right-style: dotted;
+    border-width: 1px;
+    padding-right: 10%;
+}
