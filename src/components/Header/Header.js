@@ -8,11 +8,6 @@ import Button from '@material-ui/core/Button';
 
 
 class Header extends Component {
-
-    componentDidMount() {
-        console.log('current pathname', this.props.location.pathname)
-    }
-
     render() { 
         return ( 
             <AppBar color="default">

@@ -28,12 +28,12 @@ class EditInfo extends Component {
     }
 
     componentDidMount() {
-
+        // Get the info from the server to properly load it in
         this.props.dispatch({ type: 'GET_INFO', payload: this.props.match.params })
-        window.scrollTo(0, 0)
     }
 
     updateInfo = () => {
+        // Update the info on the database
         let payload = {
             id: this.state.id,
             title: this.state.title,
@@ -44,6 +44,7 @@ class EditInfo extends Component {
     }
 
     setStateOnRefresh = (title, description) => {
+        // Sets the state of the text when it loads
         this.setState({
             id: this.props.genres[0].id, 
             title, 
@@ -52,6 +53,7 @@ class EditInfo extends Component {
     }
 
     handleChange = (event, item) => {
+        // handles change when a text box is editted
         this.setState({
             [item]: event.target.value
         })
@@ -79,7 +81,6 @@ class EditInfo extends Component {
                                 description={this.state.description}
                                 id={this.props.genres[0].id}
                             />
-                            {JSON.stringify(this.state)}
                             <Divider />
                             {this.props.genres.map(genre => <h2 key={genre.name}>{genre.name}</h2>)}
                         </Grid>

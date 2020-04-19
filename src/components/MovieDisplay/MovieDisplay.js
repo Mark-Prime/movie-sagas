@@ -12,6 +12,7 @@ import './MovieDisplay.css'
 class MovieDisplay extends Component {
 
     openViewInfo = () => {
+        // Opens the page for the selected movie
         this.props.history.push(`/view/${this.props.id}`);
     }
 

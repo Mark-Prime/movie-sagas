@@ -5,6 +5,7 @@ import TextField from '@material-ui/core/TextField';
 
 class EditInputs extends Component {
     componentDidMount() {
+        // set the state of the EditInfo component
         this.props.setStateOnRefresh(this.props.initial_title, this.props.initial_description)
     }
 

@@ -16,8 +16,8 @@ const mapReduxStateToProps = (reduxState) => ({
 class MoviePage extends Component {
 
     componentDidMount() {
+        // Gets the movie list from the database
         this.props.dispatch({ type: 'GET_MOVIES'} )
-        
     }
 
     render() { 

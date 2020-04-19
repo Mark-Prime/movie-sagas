@@ -21,7 +21,10 @@ const mapReduxStateToProps = (reduxState) => ({
 class ViewInfo extends Component {
 
     componentDidMount() {
+        // Get the info for the specific movie
         this.props.dispatch({ type: 'GET_INFO', payload: this.props.match.params })
+
+        // starts the page at the top
         window.scrollTo(0, 0)
     }
 
