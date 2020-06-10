@@ -41,7 +41,7 @@ function* updateInfo(action){
         yield axios.put(`/api/${action.payload.id}`, action.payload)
         this.props.dispatch({ type: 'GET_MOVIES' })
     } catch (error) {
-        console.log('Error in put from /api/${action.payload.id}', error);
+        console.log(`Error in put from /api/${action.payload.id}`, error);
     }
 }
 
